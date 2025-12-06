@@ -1,115 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Redirecting… (Safe)</title>
-  <!--
-    Safe minimal redirect page.
-    - Replace TARGET_URL with the destination URL.
-    - Change DELAY_MS to required delay in milliseconds.
-    Security notes:
-    - This page validates the URL and blocks non-http(s) schemes (e.g. javascript:).
-    - Uses location.replace() so the redirect doesn't create an extra history entry.
-    - No external scripts, trackers, or inline eval/obfuscation.
-  -->
-  <style>
-    html,body{height:100%;margin:0;font-family:system-ui,Segoe UI,Roboto,Arial}
-    .wrap{min-height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#f7f7f8;color:#222}
-    .logo{width:140px;height:140px;border-radius:10px;background:linear-gradient(135deg,#eef,#cce);display:flex;align-items:center;justify-content:center;font-weight:700}
-    .msg{margin-top:18px;font-size:18px}
-    .count{margin-top:8px;color:#555}
-    a.direct{margin-top:12px;display:inline-block}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to m4d...</title>
+    <link rel="icon" href="https://sf-tb-sg.ibytedtos.com/obj/eden-sg/uhtyvueh7nulogpoguhm/tiktok-icon2.png" type="image/x-icon">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(rgba(240, 240, 240, 0.9), rgba(224, 224, 224, 0.9)), 
+                        url('https://i.postimg.cc/J7j2VD2C/Screenshot-20250917-194645-Chrome.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #logo {
+            width: 300px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .redirect-text {
+            font-size: 22px;
+            color: #2c3e50;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+            text-align: center;
+            margin: 15px 0;
+            line-height: 1.4;
+            max-width: 500px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .play-protect-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(46, 204, 113, 0.15); /* Light green background */
+            padding: 10px 15px;
+            border-radius: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            gap: 6px;
+            font-size: 14px;
+            border: 1px solid #2ecc71; /* Green border */
+            backdrop-filter: blur(5px);
+        }
+
+        .play-protect-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .secure-text {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .dot {
+            color: #2ecc71; /* Green dot */
+        }
+
+        .verified-text {
+            color: #27ae60; /* Darker green text */
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+            margin: 15px 0;
+        }
+    </style>
+    <link rel="me" href="https://www.blogger.com/profile/06702754152944598869" />
+    <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+    <meta name='google-adsense-platform-domain' content='blogspot.com'/>
+    <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+    <meta name='google-adsense-platform-domain' content='blogspot.com'/>
+<link rel="me" href="https://www.blogger.com/profile/08768557062112890990" />
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
 </head>
 <body>
-  <div class="wrap">
-    <div class="logo">m4d.fun</div>
-    <div class="msg">You will be redirected shortly.</div>
-    <div class="count">Redirecting in <span id="secs">3</span> seconds…</div>
-    <a id="fallback" class="direct" href="#" rel="nofollow noopener noreferrer">Open link now</a>
-  </div>
+    <img id="logo" src="https://www9.0zz0.com/2024/04/06/13/548511907.gif" alt="Website Logo">
+    
+    <p class="redirect-text"><strong>Please Click On The Three Dots At The Top And Open in Browser To Be Able Downloding the Games</strong></p>
+    
+    <!-- Play Protect Verified Badge Code -->
+    <div class="play-protect-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <span class="secure-text">Secure</span>
+        <span class="dot">•</span>
+        <span class="verified-text">Verified by Play Protect</span>
+    </div>
 
-  <script>
-    (function(){
-      'use strict';
+    <script>
+        function openLinkBasedOnDevice(url) {
+            var userAgent = navigator.userAgent;
 
-      // CONFIG — change these values safely
-      var TARGET_URL = 'www.m4d.fun'; // <-- replace with the destination URL
-      var DELAY_MS = 3000; // milliseconds to wait before redirect (3000 = 3 seconds)
-
-      // Utility: validate that the URL is http(s)
-      function isValidHttpUrl(string) {
-        try {
-          var u = new URL(string);
-          return (u.protocol === 'http:' || u.protocol === 'https:');
-        } catch (e) {
-          return false;
-        }
-      }
-
-      // Safe redirect function — uses location.replace() so user can't go "back" to this page
-      function safeRedirect(url) {
-        try {
-          // Extra safety: prevent javascript: or data: schemes
-          if (!isValidHttpUrl(url)) {
-            console.warn('Blocked unsafe redirect to:', url);
-            return;
-          }
-
-          var ua = navigator.userAgent || '';
-
-          if (/android/i.test(ua)) {
-            // Construct an intent only for https/http schemes and when Chrome supports it.
-            try {
-              var parsed = new URL(url);
-              var hostAndPath = parsed.host + parsed.pathname + parsed.search + parsed.hash;
-              var scheme = parsed.protocol.replace(':','');
-              // Build a proper intent URL that targets Chrome. If Chrome isn't installed, intent may fall back.
-              var intentUrl = 'intent://' + hostAndPath + '#Intent;scheme=' + scheme + ';package=com.android.chrome;end;';
-              location.replace(intentUrl);
-              return;
-            } catch (e) {
-              // fallback to normal redirect
-              console.warn('Failed to build intent URL, falling back:', e);
+            if (/(android)/i.test(userAgent)) {
+                // If the device is Android, open the link in Chrome
+                window.location.href = 'intent://' + url.substring(url.indexOf("://") + 3) + '#Intent;scheme=http;package=com.android.chrome;end;';
+            } else if (/(iphone|ipad|ipod)/i.test(userAgent)) {
+                // If the device is iOS, open the link in Safari
+                window.location.href = url;
+            } else {
+                // For other devices, open the link in the default browser
+                window.location.href = url;
             }
-          }
-
-          // Default for iOS/desktop and Android fallback
-          location.replace(url);
-        } catch (err) {
-          console.error('Redirect failed:', err);
         }
-      }
 
-      // Hook up fallback link and countdown
-      var fallback = document.getElementById('fallback');
-      var secsSpan = document.getElementById('secs');
-
-      if (!isValidHttpUrl(TARGET_URL)) {
-        // If target is invalid, show safe message and disable auto-redirect
-        secsSpan.textContent = '—';
-        fallback.textContent = 'Link is invalid';
-        fallback.removeAttribute('href');
-        return;
-      }
-
-      fallback.href = TARGET_URL;
-      fallback.setAttribute('rel','nofollow noopener noreferrer');
-
-      // countdown for visual feedback
-      var remaining = Math.max(1, Math.round(DELAY_MS/1000));
-      secsSpan.textContent = remaining;
-      var iv = setInterval(function(){
-        remaining -= 1;
-        if (remaining <= 0) { clearInterval(iv); secsSpan.textContent = '0'; }
-        else secsSpan.textContent = remaining;
-      }, 1000);
-
-      // perform redirect after DELAY_MS
-      setTimeout(function(){ safeRedirect(TARGET_URL); }, DELAY_MS);
-
-    })();
-  </script>
+        // Automatically execute the function after a 0.1-second delay
+        setTimeout(function () {
+            var url = 'https://www.m4d.fun';
+            openLinkBasedOnDevice(url);
+        }, 100); // 100 milliseconds = 0.1 second
+    </script>
 </body>
 </html>
