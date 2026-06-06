@@ -1,647 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>99 Nights in the Forest — Diamonds (Visual Only)</title>
-<meta name="description" content="Fan-made, visual-only flow for screenshots and role-play. Not affiliated with Roblox or 99 Nights in the Forest." />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy 2026 — Screen Privacy Shield</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <style>
+      :root {
+        --bg-primary: #050a14;
+        --bg-glass: rgba(20, 35, 70, 0.35);
+        --border-glass: rgba(56, 130, 246, 0.15);
+        --accent: #3882f6;
+        --accent-glow: rgba(56, 130, 246, 0.4);
+        --cyan: #06d6f0;
+        --cyan-glow: rgba(6, 214, 240, 0.3);
+        --green: #10b981;
+        --text-primary: #f0f4fc;
+        --text-secondary: #7a8bb5;
+        --text-muted: #4a5a80;
+      }
 
-<meta name='LTF_verify' content='ffa8b08c0a76f77848da31ecfaa5b9ca'/>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<style>
-  :root{
-    --bg1:#9edcff; --bg2:#6cc4f6; --bg3:#4fb3ef;
-    --ink:#0d2548; --muted:#5f6f8d; --glass:rgba(255,255,255,.85);
-    --shadow:0 18px 40px rgba(7,26,56,.18); --accent:#0fb5a8; --accent-2:#078e84; --radius:20px;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; font-family: ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-    color:var(--ink);
-    background:
-      radial-gradient(1200px 520px at 50% -120px, rgba(255,255,255,.35), transparent 60%) no-repeat,
-      linear-gradient(var(--bg1) 0%, var(--bg2) 55%, var(--bg3) 100%);
-    overflow-x:hidden;
-  }
-  .wrap{width:100%; max-width:1200px; margin:0 auto; padding:28px 18px 90px}
+      body {
+        font-family: 'Outfit', sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        min-height: 100vh;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+      }
 
-  .topbar{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap}
-  .brand{display:flex; align-items:center; gap:12px}
-  .logo{width:52px; height:52px}
-  .brand h1{margin:0; font-weight:1000; letter-spacing:.4px; font-size:clamp(22px,4.2vw,40px); text-shadow:0 2px 0 rgba(0,0,0,.06)}
-  .pill{background:rgba(255,255,255,.6); border:1px solid rgba(255,255,255,.8); padding:8px 12px; border-radius:999px; font-weight:900; color:#153a64}
-  .dot{display:inline-block; width:8px; height:8px; border-radius:50%; background:#31e6bf; margin-right:8px; box-shadow:0 0 10px rgba(49,230,191,.85)}
+      /* Ambient background */
+      body::before, body::after {
+        content: ''; position: fixed; pointer-events: none; z-index: 0;
+      }
+      body::before {
+        top: -40%; left: -20%; width: 80vw; height: 80vw;
+        background: radial-gradient(circle, rgba(56,130,246,0.06) 0%, transparent 70%);
+      }
+      body::after {
+        bottom: -30%; right: -20%; width: 70vw; height: 70vw;
+        background: radial-gradient(circle, rgba(6,214,240,0.04) 0%, transparent 70%);
+      }
 
-  .tagline{max-width:820px; margin:10px 0 8px; color:var(--muted)}
-  .cta{display:flex; gap:10px; flex-wrap:wrap}
-  .btn{appearance:none; border:0; padding:14px 22px; border-radius:16px; font-weight:1000; cursor:pointer;
-    background:var(--accent); color:#fff; box-shadow:0 18px 34px rgba(6,122,113,.28), inset 0 -2px 0 var(--accent-2);
-    transition:.18s transform ease, .18s background ease, .18s box-shadow ease}
-  .btn:hover{transform:translateY(-1px); background:#12c5b7}
-  .btn.secondary{background:#edf4ff; color:#133a62; box-shadow:none; border:1px solid #d9e7ff}
-  .btn:disabled{opacity:.6; transform:none; box-shadow:none; cursor:not-allowed}
+      .container {
+        max-width: 420px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        position: relative;
+        z-index: 1;
+        flex: 1;
+      }
 
-  .section-title{text-align:center; font-size:clamp(22px,3.6vw,34px); margin:22px 0 8px; font-weight:1000}
-  .sub{text-align:center; margin:0 0 18px; color:var(--muted); font-weight:800; letter-spacing:.35px}
+      .badge {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 8px 18px; background: var(--bg-glass);
+        border: 1px solid var(--border-glass); border-radius: 100px;
+        font-size: 12px; font-weight: 500; color: var(--cyan);
+        backdrop-filter: blur(12px); animation: fadeInDown 0.6s ease-out;
+      }
 
-  .grid{
-    display:grid; gap:18px; margin:0 auto; max-width:980px;
-    grid-template-columns:repeat(auto-fit, minmax(128px, 1fr));
-    justify-content:center; align-items:stretch;
-  }
-  @media (max-width:1024px){ .grid{grid-template-columns:repeat(4,1fr)} }
-  @media (max-width:860px){ .grid{grid-template-columns:repeat(3,1fr)} }
-  @media (max-width:580px){ .grid{grid-template-columns:repeat(2,1fr)} }
+      .hero { text-align: center; margin-top: 28px; animation: fadeInUp 0.7s ease-out 0.1s both; }
+      .hero h1 { font-size: 28px; margin-bottom: 14px; }
+      .hero h1 .gradient {
+        background: linear-gradient(135deg, var(--accent), var(--cyan));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      .hero p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.6; }
 
-  .card,.class-card{
-    position:relative; padding:14px 12px 16px; border-radius:var(--radius);
-    background:var(--glass); border:1px solid rgba(255,255,255,.9); box-shadow:var(--shadow);
-    backdrop-filter: blur(8px) saturate(140%); display:flex; flex-direction:column; align-items:center; gap:10px;
-    cursor:pointer; transition:.2s transform ease, .2s box-shadow ease, .2s border ease; min-height:clamp(120px, 24vw, 168px);
-  }
-  .card:hover,.class-card:hover{transform:translateY(-3px)}
-  .card.selected,.class-card.selected{border-color:#a9fff4; box-shadow:0 18px 40px rgba(14,180,160,.35)}
-  .amount{word-break:break-word; text-align:center; font-size:clamp(18px,2.6vw,26px); font-weight:1000}
-  .diamond{width:72px; height:72px; filter:drop-shadow(0 7px 12px rgba(0,0,0,.18))}
-  .ribbon{position:absolute; left:50%; top:8px; transform:translateX(-50%); background:#0e223b; color:#fff; border-radius:999px; padding:4px 10px; font-weight:900; font-size:12px; line-height:1; box-shadow:0 8px 16px rgba(0,0,0,.25)}
+      /* Phone mockup */
+      .phone-mockup {
+        margin: 32px auto;
+        width: 180px;
+        height: 280px;
+        background: linear-gradient(145deg, #111827, #0a0f1a);
+        border-radius: 28px;
+        border: 2px solid rgba(56,130,246,0.2);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 40px rgba(56,130,246,0.1), 0 20px 60px rgba(0,0,0,0.5);
+        animation: fadeInUp 0.8s ease-out 0.2s both;
+      }
+      .phone-mockup::before {
+        content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+        width: 50px; height: 6px; background: #1a2340; border-radius: 10px; z-index: 3;
+      }
+      .phone-screen { position: absolute; inset: 14px 8px; border-radius: 18px; overflow: hidden; display: flex; }
+      .screen-half { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 500; position: relative; }
+      .screen-normal { background: linear-gradient(180deg, #1e3a5f 0%, #0f2440 50%, #0a1628 100%); color: rgba(255,255,255,0.8); }
+      .screen-normal::before {
+        content: ''; position: absolute; top: 30%; left: 50%; transform: translateX(-50%);
+        width: 30px; height: 30px; border-radius: 50%; background: radial-gradient(circle, rgba(56,130,246,0.4), transparent);
+      }
+      .screen-privacy { background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); color: rgba(255,255,255,0.2); }
+      .screen-divider { width: 1px; background: rgba(6,214,240,0.4); position: relative; z-index: 2; box-shadow: 0 0 8px var(--cyan-glow); }
+      .screen-label { position: absolute; bottom: 8px; font-size: 7px; text-transform: uppercase; letter-spacing: 1px; text-align: center; width: 100%; opacity: 0.7; }
 
-  .diamond-wrap{position:relative; transition:transform .18s ease; width:clamp(72px,14vw,132px); height:clamp(72px,14vw,132px); display:grid; place-items:center}
-  .select-check{position:absolute; right:12px; top:12px; width:26px; height:26px; border-radius:50%; background:#11b8aa; color:#fff; font-weight:900; display:none; align-items:center; justify-content:center; box-shadow:0 8px 16px rgba(17,184,170,.35)}
-  .card.selected .select-check,.class-card.selected .select-check{display:flex; animation:pop .18s ease-out}
-  @keyframes pop{from{transform:scale(.6); opacity:0} to{transform:scale(1); opacity:1}}
-  .diamond-wrap::after{content:''; position:absolute; inset:0; transform:skewX(-20deg) translateX(-120%); background:linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent); border-radius:14px}
-  .card.selected .diamond-wrap::after{animation:shine 900ms ease forwards}
-  @keyframes shine{to{transform:skewX(-20deg) translateX(120%)}}
+      .platform-section { animation: fadeInUp 0.8s ease-out 0.3s both; margin-top: 30px; }
+      .section-title { text-align: center; font-size: 17px; font-weight: 600; margin-bottom: 15px; }
+      
+      .platform-btns { display: flex; gap: 12px; margin-bottom: 24px; }
+      .platform-btn {
+        flex: 1; padding: 14px; background: var(--bg-glass);
+        border: 1.5px solid var(--border-glass); border-radius: 14px;
+        color: var(--text-primary); font-family: 'Outfit', sans-serif;
+        font-size: 14.5px; cursor: pointer; backdrop-filter: blur(12px);
+        transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px;
+      }
+      .platform-btn:hover, .platform-btn.active { border-color: var(--accent); background: rgba(56,130,246,0.12); }
 
-  .grid-classes{display:grid; gap:18px; margin:0 auto; max-width:980px; grid-template-columns:repeat(auto-fit, minmax(128px, 1fr))}
-  .class-img-wrap{position:relative; width:clamp(72px,14vw,132px); height:clamp(72px,14vw,132px); display:grid; place-items:center; overflow:visible}
-  .class-img-wrap img{max-width:100%; max-height:100%; display:block}
-  .class-img-wrap::after{
-    content:'m2d.site'; position:absolute; inset:-8px; pointer-events:none;
-    font-weight:1000; font-size:16px; letter-spacing:.12em; text-transform:lowercase;
-    color:rgba(255,255,255,.38); text-shadow:0 1px 3px rgba(0,0,0,.35); transform:rotate(-24deg); display:grid; place-items:center;
-  }
-  .class-label{font-size:clamp(16px,2.4vw,22px); font-weight:1000; text-align:center}
+      .action-area {
+        background: var(--bg-glass); border: 1px solid var(--border-glass);
+        border-radius: 18px; padding: 20px; backdrop-filter: blur(16px);
+        margin-bottom: 28px; display: none; animation: fadeInUp 0.5s ease-out; text-align: center;
+      }
+      .action-area.visible { display: block; }
 
-  .continue{display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; margin:18px 0 6px}
-  .selection-info{display:none; background:#eaf7ff; color:#274d75; padding:6px 10px; border-radius:999px; font-weight:800; font-size:14px}
-  #continueBtn{display:none;} /* hidden until both selections are done */
+      .btn-verify {
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+        width: 100%; padding: 16px; background: linear-gradient(135deg, #06b6d4, #3b82f6); 
+        border: none; border-radius: 12px; color: white;
+        font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700;
+        cursor: pointer; transition: all 0.3s; margin-top: 15px; box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+      }
+      .btn-verify:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4); }
 
-  .overlay{position:fixed; inset:0; display:none; align-items:center; justify-content:center; z-index:40; background:rgba(0,0,0,.35); backdrop-filter: blur(6px)}
-  .overlay.show{display:flex}
-  .modal{width:min(94vw,600px); background:#fff; border-radius:24px; box-shadow:0 24px 60px rgba(0,0,0,.28); padding:22px 22px 20px; text-align:center; position:relative}
-  .modal h3{margin:6px 0 8px; font-size:26px}
-  .modal p{margin:0 0 16px; color:var(--muted)}
-  .input{width:100%; padding:14px 16px; border-radius:12px; border:2px solid #e3eaf4; outline:none; font-size:16px; background:#f7fafd}
-  .close-x{position:absolute; right:10px; top:8px; border:0; background:transparent; font-size:26px; cursor:pointer; color:#96a7c3}
-  .spinner{width:50px; height:50px; border-radius:50%; border:6px solid #e6f1ff; border-top-color:var(--accent); margin:6px auto 8px; animation:spin 1s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .progress{height:10px; width:100%; background:#eef4fc; border-radius:999px; overflow:hidden; margin-top:10px}
-  .bar{height:100%; width:0%; background:linear-gradient(90deg,#27e0d1,#1aa8ff); border-radius:999px; transition:width .35s ease}
-  .modal-list{margin:12px 0 0; text-align:left; max-height:260px; overflow:auto}
-  .itemrow{display:flex; align-items:center; justify-content:space-between; gap:10px; background:#f6fafb; border:1px solid #e7f1f0; padding:12px 14px; border-radius:12px; margin:8px 0}
-  .ok-dot{width:11px; height:11px; border-radius:50%; background:#cad7e6}
-  .done{background:#17b49d !important; box-shadow:0 0 0 2px #c9efe9 inset}
+      /* Custom API Locker Modal Styling */
+      .api-modal-overlay {
+        display: none; position: fixed; inset: 0; background: rgba(2, 5, 12, 0.85);
+        backdrop-filter: blur(8px); z-index: 2000; align-items: center; justify-content: center; padding: 20px;
+        animation: fadeIn 0.3s ease;
+      }
+      .api-modal-overlay.active { display: flex; }
+      .api-modal-content {
+        background: linear-gradient(160deg, rgba(15,25,55,0.95), rgba(8,14,35,0.98));
+        border: 1px solid var(--border-glass); border-radius: 22px; padding: 30px 24px;
+        width: 100%; max-width: 380px; text-align: center; position: relative;
+        box-shadow: 0 0 40px rgba(56,130,246,0.2);
+      }
+      .close-modal {
+        position: absolute; top: 15px; right: 20px; background: none; border: none;
+        color: var(--text-muted); font-size: 20px; cursor: pointer; transition: 0.3s;
+      }
+      .close-modal:hover { color: white; }
+      .api-modal-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: white; }
+      .api-modal-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.5; }
+      
+      .offer-list { display: flex; flex-direction: column; gap: 10px; max-height: 60vh; overflow-y: auto; }
+      .offer-list::-webkit-scrollbar { width: 6px; }
+      .offer-list::-webkit-scrollbar-thumb { background: var(--border-glass); border-radius: 4px; }
+      
+      .offer-item {
+        display: flex; align-items: center; gap: 12px; background: var(--bg-glass);
+        border: 1px solid var(--border-glass); border-radius: 14px; padding: 12px;
+        color: white; text-decoration: none; text-align: left; transition: 0.3s;
+      }
+      .offer-item:hover { background: rgba(56,130,246,0.15); border-color: var(--accent); transform: translateX(4px); }
+      .offer-icon { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; background: #fff; flex-shrink: 0; }
+      .offer-text { font-size: 13px; font-weight: 600; line-height: 1.3; }
+      .spinner { display: inline-block; width: 24px; height: 24px; border: 3px solid rgba(56,130,246,0.2); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 10px; }
 
-  .mountains{position:fixed; left:0; right:0; bottom:0; height:36vh; pointer-events:none; z-index:-1}
-  .m{position:absolute; left:0; right:0; bottom:0}
-  .m svg{width:140%; transform:translateX(-10%)}
-  .m1{opacity:.28} .m2{opacity:.22; bottom:4vh} .m3{opacity:.18; bottom:8vh}
-  @media (max-width:700px){ .m svg{width:200%; transform:translateX(-25%)} }
+      /* Site Footer Styling */
+      .site-footer {
+        position: relative; z-index: 10; width: 100%; padding: 24px 16px;
+        background: rgba(4, 8, 18, 0.8); border-top: 1px solid var(--border-glass);
+        text-align: center; font-size: 12px; color: var(--text-secondary);
+      }
+      .footer-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 12px; }
+      .footer-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+      .footer-links a:hover { color: var(--accent); }
+      .encryption-notice { display: inline-flex; align-items: center; gap: 6px; color: var(--green); font-size: 11px; margin-top: 8px; font-weight: 500; }
 
-  .scat{position:fixed; inset:0; pointer-events:none; z-index:0}
-  .scat svg{position:absolute; width:22px; height:22px; opacity:.18}
-
-  .diamond{width:clamp(56px, 10vw, 86px); height:auto; display:block}
-
-  /* === LOCKER OVERLAY STYLED TO MATCH FOREST THEME === */
-  .locker-overlay{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:60;
-    background:rgba(0,0,0,.75);
-    backdrop-filter:blur(8px);
-    align-items:center;
-    justify-content:center;
-    padding:16px;
-  }
-  .locker-box{
-    width:min(100%,420px);
-    background:linear-gradient(145deg,#0f2542,#16395f);
-    color:#fff;
-    border-radius:20px;
-    padding:18px 18px 16px;
-    box-shadow:0 24px 60px rgba(0,0,0,.6);
-    border:1px solid rgba(255,255,255,.18);
-    text-align:left;
-    position:relative;
-  }
-  .locker-close{
-    position:absolute;
-    right:10px;
-    top:8px;
-    width:28px;
-    height:28px;
-    border-radius:999px;
-    border:0;
-    background:rgba(255,255,255,.14);
-    color:#e7f3ff;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:20px;
-  }
-  .locker-title{
-    font-weight:900;
-    font-size:18px;
-    margin-bottom:4px;
-  }
-  .locker-sub{
-    font-size:13px;
-    opacity:.9;
-    margin-bottom:10px;
-  }
-  .locker-items{
-    display:flex;
-    gap:8px;
-    margin:8px 0 10px;
-    flex-wrap:wrap;
-  }
-  .locker-item-thumb{
-    width:46px;
-    height:46px;
-    border-radius:12px;
-    object-fit:cover;
-    box-shadow:0 0 0 2px rgba(255,255,255,.4), 0 4px 12px rgba(0,0,0,.5);
-    background:#17375d;
-  }
-  .locker-note{
-    font-size:12px;
-    background:rgba(5,21,40,.85);
-    border-radius:10px;
-    padding:8px 10px;
-    border:1px solid rgba(255,255,255,.16);
-    margin-bottom:10px;
-  }
-  .locker-note strong{color:#7df7ff}
-  .offers-title{
-    font-size:13px;
-    font-weight:800;
-    margin:8px 0 6px;
-  }
-  #offersList{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-  }
-  .offer-btn{
-    border-radius:10px;
-    border:0;
-    padding:8px 10px;
-    background:linear-gradient(135deg,#0fb5a8,#1aa8ff);
-    color:#053042;
-    font-weight:900;
-    font-size:13px;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    cursor:pointer;
-    box-shadow:0 10px 24px rgba(6,112,140,.6);
-  }
-  .offer-btn img{
-    width:32px;
-    height:32px;
-    border-radius:6px;
-    object-fit:cover;
-    background:#fff;
-  }
-</style>
-</head>
-
-<body>
-  <!-- Decorative mountains -->
-  <div class="mountains" aria-hidden="true">
-    <div class="m m1"><svg viewBox="0 0 1200 240" preserveAspectRatio="none"><path d="M0,200 L150,120 L300,200 L480,110 L650,200 L820,130 L1000,200 L1200,150 L1200,240 L0,240 Z" fill="#2a6c7d"/></svg></div>
-    <div class="m m2"><svg viewBox="0 0 1200 240" preserveAspectRatio="none"><path d="M0,200 L140,130 L280,200 L430,120 L590,200 L760,135 L930,200 L1100,140 L1200,200 L1200,240 L0,240 Z" fill="#277084"/></svg></div>
-    <div class="m m3"><svg viewBox="0 0 1200 240" preserveAspectRatio="none"><path d="M0,200 L130,140 L260,200 L400,135 L540,200 L700,150 L860,200 L1020,145 L1200,200 L1200,240 L0,240 Z" fill="#236f86"/></svg></div>
-  </div>
-
-  <!-- Scatter -->
-  <div class="scat" aria-hidden="true" id="scat"></div>
-
-  <div class="wrap">
-    <!-- Header -->
-    <div class="topbar">
-      <div class="brand">
-        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
-          <defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7be9ff"/><stop offset="1" stop-color="#1aa8ff"/></linearGradient></defs>
-          <path d="M12 10h40l10 14-30 30L2 24 12 10z" fill="url(#g)" stroke="#0f6aa1" stroke-width="3" stroke-linejoin="round"/>
-          <path d="M12 10l10 14 10 30 10-30 10-14M22 24h20" fill="none" stroke="#0e79b6" stroke-width="3" stroke-linejoin="round"/>
-        </svg>
-        <h1>99 Nights in the Forest — Diamonds</h1>
+      @keyframes fadeInDown { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes fadeInUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div style="text-align:center;">
+        <div class="badge"><i class="fas fa-lock"></i> Advanced Privacy Technology</div>
       </div>
-      <div class="pill"><span class="dot"></span><span id="onlineCount">2,476</span> online</div>
-    </div>
-
-    <p class="tagline">Instantly generate thousands of diamonds with our smooth, game-like animation. Watch as your chosen amount is processed and added before your eyes.</p>
-    <div class="cta">
-      <button class="btn" id="startBtn">★ Start Now</button>
-      <button class="btn secondary" id="howBtn">How it works</button>
-    </div>
-
-    <h2 class="section-title">1. Select Your Diamonds</h2>
-    <p class="sub">Choose one amount</p>
-    <div class="grid" id="grid"></div>
-
-    <h2 class="section-title">2. Select Your Desired Class</h2>
-    <p class="sub">Choose one class</p>
-    <div class="grid-classes" id="classGrid"></div>
-
-    <div class="continue">
-      <div class="selection-info" id="selectedInfo" aria-live="polite"></div>
-      <!-- hidden by default; appears when both selections are done -->
-      <button class="btn" id="continueBtn" disabled>Continue →</button>
-    </div>
-
-    <div class="how" id="how">
-      <div class="itemrow"><strong>1) Pick an amount</strong> Select an option for how many diamonds you want to generate.</div>
-      <div class="itemrow"><strong>2) Enter username</strong> Enter your username and click Start Generation.</div>
-      <div class="itemrow"><strong>3) Verification</strong> Complete verification in the final step.</div>
-    </div>
-
-    <p class="sub" style="text-align:center; margin-top:22px">Fan-made interface for entertainment & content creation • © 2025 • Not affiliated with Roblox or 99 Nights in the Forest.</p>
-  </div>
-
-  <!-- Modals -->
-  <div class="overlay" id="modalUsername" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal">
-      <button class="close-x" onclick="closeAll()" aria-label="Close">×</button>
-      <h3>Enter Your Username</h3>
-      <p>Please enter your Roblox username to begin the generation.</p>
-      <input class="input" id="usernameInput" placeholder="Your Username Here" />
-      <div style="display:flex; gap:12px; justify-content:center; margin-top:16px">
-        <button class="btn secondary" onclick="closeAll()">Cancel</button>
-        <button class="btn" id="startGenBtn">Start Generation</button>
+      
+      <div class="hero">
+        <h1>Enable the privacy feature on <br><span class="gradient">your smartphone</span></h1>
+        <p>Protect your screen from prying eyes. Choose your platform below to securely download the profile.</p>
       </div>
-      <p style="font-size:12px; color:#6f82a4; margin-top:10px">Privacy note: the name you type stays on this page only.</p>
-    </div>
-  </div>
 
-  <div class="overlay" id="modalConnecting" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal">
-      <div class="spinner" aria-hidden="true"></div>
-      <h3>Connecting…</h3>
-      <p id="connectingDesc">Please wait while we connect and verify.</p>
-    </div>
-  </div>
-
-  <div class="overlay" id="modalGenerating" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal">
-      <h3>Generating Your Diamonds & Class</h3>
-      <div class="progress"><div class="bar" id="bar"></div></div>
-      <div class="modal-list" id="genList"></div>
-    </div>
-  </div>
-
-  <div class="overlay" id="modalSuccess" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal">
-      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
-      <h3>Success!</h3>
-      <p>Your diamonds and selected class have been prepared and are ready!</p>
-      <div class="modal-list" id="successList"></div>
-      <div style="margin-top:16px">
-        <button class="btn" id="toVerify">Continue → Verification</button>
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="screen-half screen-normal">
+            <span class="screen-label">Normal</span>
+          </div>
+          <div class="screen-divider"></div>
+          <div class="screen-half screen-privacy">
+            <span class="screen-label">Private</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="overlay" id="modalVerify" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal">
-      <h3>Human Verification</h3>
-      <p>To prevent bot abuse, please complete one quick step to finalize your rewards.</p>
-      <!-- Former locker location: wired to LockerSystem.open using your API key -->
-      <button class="btn" id="verifyNowBtn">Verify Now</button>
-    </div>
-  </div>
-
-  <!-- LOCKER OVERLAY -->
-  <div class="locker-overlay" id="locker">
-    <div class="locker-box">
-      <button class="locker-close" onclick="LockerSystem.close()" aria-label="Close">×</button>
-      <div class="locker-title">Complete Final Step</div>
-      <div class="locker-sub">Choose one available offer and complete it fully to unlock your diamonds and class.</div>
-      <div class="locker-items" id="selectedItemsPreview"></div>
-      <div class="locker-note">
-        <strong>Note:</strong> Offers are provided by third‑party advertisers. Make sure to finish all steps in the offer description so the system can register completion.
+      <div class="platform-section" id="platformSection">
+        <div class="section-title">Select Your Device</div>
+        <div class="platform-btns">
+          <button class="platform-btn" onclick="selectPlatform('apple', this)">
+            <i class="fab fa-apple"></i> Apple iOS
+          </button>
+          <button class="platform-btn" onclick="selectPlatform('google', this)">
+            <i class="fab fa-google-play"></i> Android
+          </button>
+        </div>
       </div>
-      <div class="offers-title">Available offers</div>
-      <div id="offersList"></div>
-    </div>
-  </div>
 
-<script>
-/* ===== CONFIG FROM YOUR OTHER LANDING PAGE ===== */
-const CONFIG = {
-  API_KEY: "3b17a09c1ca2bba2d52ffadab4894374",
-  USER_ID: "504359",
-  API_URL: "https://d1y3y09sav47f5.cloudfront.net/public/offers/feed.php"
-};
-
-/* ===== DATA ===== */
-const AMOUNTS = [
-  { id:'d-2500',  label:'2,500 Diamonds' },
-  { id:'d-5000',  label:'5,000 Diamonds', rec:true },
-  { id:'d-7500',  label:'7,500 Diamonds' },
-  { id:'d-10000', label:'10,000 Diamonds' },
-];
-
-const CLASSES = [
-  { id:'c-cyborg',      label:'Cyborg',      img:'https://i.postimg.cc/dtxNYrWn/cyborg-lp.png' },
-  { id:'c-bg-hunter',   label:'BG Hunter',   img:'https://i.postimg.cc/fbvDpT4P/BG-Hunter.png' },
-  { id:'c-assassin',    label:'Assassin',    img:'https://i.postimg.cc/SNWSCGTs/Assassin.png' },
-  { id:'c-necromancer', label:'Necromancer', img:'https://i.postimg.cc/3xXT0Jw8/Necromancer.png' },
-  { id:'c-pyromaniac',  label:'Pyromaniac',  img:'https://i.postimg.cc/P5jqR7pZ/Pyromaniac.png' },
-  { id:'c-vampire',     label:'Vampire',     img:'https://i.postimg.cc/fydwH7Mj/Vampire.png' }
-];
-
-/* ===== ELEMENTS ===== */
-const gridEl = document.getElementById('grid');
-const classGridEl = document.getElementById('classGrid');
-const continueBtn = document.getElementById('continueBtn');
-const startBtn = document.getElementById('startBtn');
-const howBtn = document.getElementById('howBtn');
-
-const modalUsername   = document.getElementById('modalUsername');
-const modalConnecting = document.getElementById('modalConnecting');
-const modalGenerating = document.getElementById('modalGenerating');
-const modalSuccess    = document.getElementById('modalSuccess');
-const modalVerify     = document.getElementById('modalVerify');
-
-const usernameInput = document.getElementById('usernameInput');
-const startGenBtn   = document.getElementById('startGenBtn');
-const connectingDesc= document.getElementById('connectingDesc');
-const genList       = document.getElementById('genList');
-const successList   = document.getElementById('successList');
-const progressBar   = document.getElementById('bar');
-const onlineCountEl = document.getElementById('onlineCount');
-const scat          = document.getElementById('scat');
-
-/* ===== HELPERS ===== */
-function show(el){ el.classList.add('show'); el.setAttribute('aria-hidden','false'); }
-function hide(el){ el.classList.remove('show'); el.setAttribute('aria-hidden','true'); }
-function closeAll(){ [modalUsername,modalConnecting,modalGenerating,modalSuccess,modalVerify].forEach(hide); }
-function escapeHTML(str){ return str.replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
-function rnd(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
-
-/* Diamond SVG */
-function diamondSVG(size=72){
-  const id = 'gd-'+Math.random().toString(36).slice(2,7);
-  return `<svg class="diamond" viewBox="0 0 64 64" width="${size}" height="${size}" aria-hidden="true">
-    <defs><linearGradient id="${id}" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="0" stop-color="#7be9ff"/><stop offset="1" stop-color="#1aa8ff"/></linearGradient></defs>
-    <path d="M12 10h40l10 14-30 30L2 24 12 10z" fill="url(#${id})" stroke="#0f6aa1" stroke-width="3" stroke-linejoin="round"/>
-    <path d="M12 10l10 14 10 30 10-30 10-14M22 24h20" fill="none" stroke="#0e79b6" stroke-width="3" stroke-linejoin="round"/></svg>`;
-}
-
-/* Build diamonds & classes */
-let selectedId = null, selectedLabel = "";
-let selectedClassId = null, selectedClassLabel = "";
-
-AMOUNTS.forEach(a=>{
-  const card = document.createElement('button');
-  card.className = 'card'; card.type = 'button';
-  card.innerHTML = `${a.rec?'<span class="ribbon">Recommended</span>':''}
-    <span class="select-check" aria-hidden="true">✓</span>
-    <div class="diamond-wrap">${diamondSVG()}</div>
-    <div class="amount">${a.label}</div>`;
-  card.addEventListener('click', ()=>{
-    document.querySelectorAll('.card').forEach(c=>{ c.classList.remove('selected'); c.setAttribute('aria-pressed','false'); });
-    card.classList.add('selected'); card.setAttribute('aria-pressed','true');
-    selectedId = a.id; selectedLabel = a.label;
-    renderSelectedInfo();
-    enableIfReady();  // auto show/hide button
-  });
-  gridEl.appendChild(card);
-});
-
-CLASSES.forEach(c=>{
-  const card = document.createElement('button');
-  card.className = 'class-card'; card.type = 'button';
-  card.innerHTML = `<span class="select-check" aria-hidden="true">✓</span>
-    <div class="class-img-wrap"><img alt="${c.label}" src="${c.img}"></div>
-    <div class="class-label">${c.label}</div>`;
-  card.addEventListener('click', ()=>{
-    document.querySelectorAll('.class-card').forEach(k=>{ k.classList.remove('selected'); k.setAttribute('aria-pressed','false'); });
-    card.classList.add('selected'); card.setAttribute('aria-pressed','true');
-    selectedClassId = c.id; selectedClassLabel = c.label;
-    renderSelectedInfo();
-    enableIfReady();  // auto show/hide button
-  });
-  classGridEl.appendChild(card);
-});
-
-function renderSelectedInfo(){
-  const info = document.getElementById('selectedInfo');
-  const parts = [];
-  if(selectedLabel) parts.push(selectedLabel);
-  if(selectedClassLabel) parts.push('Class: ' + selectedClassLabel);
-  if(parts.length){
-    info.style.display='inline-flex';
-    info.textContent = 'Selected: ' + parts.join(' • ');
-  }
-}
-
-/* Show/hide Continue based on both selections */
-function enableIfReady(){
-  const ready = !!(selectedId && selectedClassId);
-  if (ready) {
-    continueBtn.style.display = 'inline-flex';
-    continueBtn.disabled = false;
-  } else {
-    continueBtn.style.display = 'none';
-    continueBtn.disabled = true;
-  }
-}
-
-/* Buttons & flow */
-startBtn.addEventListener('click', ()=>window.scrollTo({top:gridEl.offsetTop-20, behavior:'smooth'}));
-howBtn.addEventListener('click', ()=>document.getElementById('how').scrollIntoView({behavior:'smooth'}));
-continueBtn.addEventListener('click', ()=>{ if(!(selectedId && selectedClassId)) return; show(modalUsername); setTimeout(()=>usernameInput.focus(), 60); });
-
-startGenBtn.addEventListener('click', ()=>{
-  const user = usernameInput.value.trim();
-  if(!user){
-    usernameInput.focus();
-    usernameInput.style.borderColor='#ff8b8b';
-    return;
-  }
-  usernameInput.style.borderColor='#e3eaf4';
-  closeAll();
-  connectingDesc.innerHTML = `Please wait while we connect and verify <strong>${escapeHTML(user)}</strong>.`;
-  show(modalConnecting);
-  setTimeout(()=>beginGenerating(user), 900);
-});
-
-function beginGenerating(user){
-  closeAll(); genList.innerHTML=''; progressBar.style.width='0%'; show(modalGenerating);
-  const steps = [
-    `Selected amount: ${selectedLabel || '—'}`,
-    `Selected class: ${selectedClassLabel || '—'}`,
-    'Contacting servers…',
-    `Checking account name: ${escapeHTML(user)}`,
-    'Preparing transfer…',
-    'Finalizing…'
-  ];
-  let i=0;
-  const interval = setInterval(()=>{
-    if(i<steps.length){
-      genList.appendChild(stepRow(steps[i], false));
-      growProgress(18 + i*20); i++;
-    }else{
-      clearInterval(interval);
-      setTimeout(()=>{
-        genList.appendChild(stepRow(selectedLabel || 'Diamonds', true));
-        genList.appendChild(stepRow(`Class: ${selectedClassLabel || 'Class'}`, true));
-        growProgress(100);
-        setTimeout(()=>finishSuccess(`${selectedLabel || 'Diamonds'} • Class: ${selectedClassLabel || 'Class'}`, user), 650);
-      }, 450);
-    }
-  }, 700);
-}
-
-function growProgress(v){ progressBar.style.width = Math.min(v,100)+'%'; }
-function stepRow(text, done){
-  const row=document.createElement('div');
-  row.className='itemrow';
-  row.innerHTML = `<span>${text}</span><span class="ok-dot ${done?'done':''}"></span>`;
-  return row;
-}
-let lastUsername = '';
-function finishSuccess(txt,user){
-  lastUsername = user;
-  closeAll(); successList.innerHTML=''; successList.appendChild(stepRow(txt,true)); show(modalSuccess);
-}
-document.getElementById('toVerify').addEventListener('click', ()=>{ closeAll(); show(modalVerify); });
-
-/* Online jiggle */
-let online = 2476;
-setInterval(()=>{ online += rnd(-2,6); onlineCountEl.textContent = online.toLocaleString(); }, 1800);
-
-/* Scatter */
-(function makeScatter(){
-  const N = 28;
-  const scat = document.getElementById('scat');
-  for(let i=0;i<N;i++){
-    const x=Math.random()*98, y=Math.random()*85 + 5, r=(Math.random()*1.2)+0.8;
-    const el=document.createElementNS('http://www.w3.org/2000/svg','svg');
-    el.setAttribute('viewBox','0 0 24 24'); el.style.left=x+'vw'; el.style.top=y+'vh'; el.style.transform=`scale(${r})`;
-    el.style.position='absolute'; el.innerHTML=`<path d="M5 5h14l3 4-10 10L2 9l3-4z" fill="none" stroke="#0f6aa1" stroke-width="2" stroke-linejoin="round" opacity=".45"/>`;
-    scat.appendChild(el);
-  }
-})();
-
-/* Accessibility */
-window.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeAll(); });
-
-/* ===== LOCKER SYSTEM USING YOUR API KEY ===== */
-const LockerSystem = {
-  open: function(username, selectionLabel){
-    const overlay = document.getElementById('locker');
-    const preview = document.getElementById('selectedItemsPreview');
-    if(preview){
-      preview.innerHTML = '';
-      const span = document.createElement('div');
-      span.textContent = selectionLabel || 'Selected Rewards';
-      span.style.fontWeight = '900';
-      span.style.fontSize = '13px';
-      span.style.padding = '6px 8px';
-      span.style.borderRadius = '999px';
-      span.style.background = 'rgba(255,255,255,.14)';
-      span.style.color = '#e7f6ff';
-      preview.appendChild(span);
-    }
-    this.loadOffers();
-    overlay.style.display='flex';
-  },
-  close: function(){
-    const overlay = document.getElementById('locker');
-    overlay.style.display='none';
-  },
-  loadOffers: function(){
-    const list = document.getElementById('offersList');
-    if(!list) return;
-    list.innerHTML = "<div style='color:#fff;text-align:center;padding:10px;font-size:12px;'>Loading offers…</div>";
-    const url = `${CONFIG.API_URL}?user_id=${CONFIG.USER_ID}&api_key=${CONFIG.API_KEY}&s1=forest&s2=diamonds`;
-    const controller = new AbortController();
-    const timeoutId = setTimeout(()=>controller.abort(),10000);
-    fetch(url,{signal:controller.signal})
-      .then(r=>r.json())
-      .then(data=>{
-        clearTimeout(timeoutId);
-        if(!Array.isArray(data) || !data.length){ this.showFallback(); return; }
-        this.renderOffers(data);
-      })
-      .catch(()=>{
-        clearTimeout(timeoutId);
-        this.showFallback();
-      });
-  },
-  showFallback: function(){
-    const fallback = [
-      { anchor:"Complete 1 quick survey", url:"#", network_icon:"https://via.placeholder.com/40" },
-      { anchor:"Install and open a free app", url:"#", network_icon:"https://via.placeholder.com/40" }
-    ];
-    this.renderOffers(fallback);
-  },
-  renderOffers: function(offers){
-    const list = document.getElementById('offersList');
-    if(!list) return;
-    let html = '';
-    offers.slice(0,2).forEach(o=>{
-      const title = o.anchor || o.name || 'Complete Offer';
-      const link  = o.url || '#';
-      const icon  = o.network_icon || 'https://via.placeholder.com/40';
-      html += `
-        <button class="offer-btn" onclick="LockerSystem.selectOffer('${link.replace(/'/g,"\\'")}')">
-          <img src="${icon}" alt="Offer">
-          <span>${title}</span>
+      <div class="action-area" id="actionArea">
+        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 10px;">
+          Access provided via our verified promotional sponsors. Complete one simple option below to unlock the <strong id="platformLabel" style="color: white;"></strong> download.
+        </p>
+        <button class="btn-verify" onclick="openApiLocker()">
+          Verify & Download <i class="fas fa-chevron-right"></i>
         </button>
-      `;
-    });
-    if(!html){
-      html = "<div style='color:#fff;text-align:center;padding:10px;font-size:12px;'>No offers available at the moment.</div>";
-    }
-    list.innerHTML = html;
-  },
-  selectOffer: function(url){
-    if(url && url !== '#'){
-      const trackingParams = `&sub2=u${CONFIG.USER_ID}&sub15=forest`;
-      const tracked = url + (url.includes('?') ? '&' : '?') + trackingParams;
-      window.open(tracked,'_blank');
-      setTimeout(()=>alert('After you fully complete the offer, return here and your rewards will be processed.'),800);
-    }else{
-      alert('Thank you! Your selection has been recorded.');
-    }
-  }
-};
+      </div>
+    </div>
 
-/* Hook "Verify Now" to open locker with last selection/username */
-document.getElementById('verifyNowBtn').addEventListener('click', ()=>{
-  closeAll();
-  const selectionText = `${selectedLabel || 'Diamonds'} • Class: ${selectedClassLabel || 'Class'}`;
-  LockerSystem.open(lastUsername || 'Player', selectionText);
-});
-</script>
+    <div class="api-modal-overlay" id="apiModal">
+      <div class="api-modal-content">
+        <button class="close-modal" onclick="closeApiLocker()"><i class="fas fa-times"></i></button>
+        <h2 class="api-modal-title">Sponsor Verification</h2>
+        <p class="api-modal-desc">Select and complete any option listed below. Your package download will initialize immediately after completion.</p>
+        
+        <div class="offer-list" id="offerContainer">
+          </div>
+        
+        <div class="encryption-notice">
+          <i class="fas fa-shield-halved"></i> 256-bit SSL Content Gateway Secure
+        </div>
+      </div>
+    </div>
 
-<!-- Hidden stat counter (optional; remove if you want zero external calls) -->
-<div hidden>
-  <a href="http://livetrafficfeed.com" data-num="1" data-width="210" data-responsive="0" data-time="America%2FNew_York" data-root="0" data-cheader="2853a8" data-theader="ffffff" data-border="2853a8" data-background="ffffff" data-normal="000000" data-link="135d9e" target="_blank" id="LTF_live_website_visitor">Stat Counter</a>
-  <script type="text/javascript" src="//cdn.livetrafficfeed.com/static/v4/live.js"></script>
-  <noscript><a href="http://livetrafficfeed.com">Stat Counter</a></noscript>
-</div>
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Contact Support</a>
+      </div>
+      <p>&copy; 2026 Privacy Shield Technology. All rights reserved.</p>
+      <p style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">This site functions as a sponsored contents gateway. Third-party branding belongs to their respective owners.</p>
+    </footer>
 
-</body>
+    <script>
+      function selectPlatform(platform, btn) {
+        document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('platformLabel').textContent = platform === 'apple' ? 'Apple iOS' : 'Android';
+        document.getElementById('actionArea').classList.add('visible');
+      }
+
+      function closeApiLocker() {
+        document.getElementById('apiModal').classList.remove('active');
+      }
+
+      async function openApiLocker() {
+        const modal = document.getElementById('apiModal');
+        const container = document.getElementById('offerContainer');
+        
+        modal.classList.add('active');
+        container.innerHTML = '<div style="padding: 20px;"><div class="spinner"></div><p style="font-size: 13px; color: var(--text-secondary);">Loading secure offers...</p></div>';
+
+        // API Endpoint
+        const apiUrl = 'https://d1y3y09sav47f5.cloudfront.net/public/offers/feed.php?user_id=504359&api_key=3b17a09c1ca2bba2d52ffadab4894374';
+
+        try {
+          const response = await fetch(apiUrl);
+          
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          
+          const data = await response.json();
+          
+          let offers = [];
+          if (data && data.offers && Array.isArray(data.offers)) {
+            offers = data.offers;
+          } else if (Array.isArray(data)) {
+            offers = data;
+          }
+
+          if (offers.length === 0) {
+            container.innerHTML = '<p style="color: var(--text-muted); font-size: 14px; padding: 20px;">No offers available for your region/device right now. Please try again later or use a mobile device.</p>';
+            return;
+          }
+
+          container.innerHTML = ''; 
+          
+          // Show exactly 3 offers
+          offers.slice(0, 3).forEach((offer, idx) => {
+            const link = document.createElement('a');
+            link.className = 'offer-item';
+            link.href = offer.url || offer.link || '#';
+            link.target = '_blank';
+            
+            const imgUrl = offer.network_icon || offer.image || offer.logo || 'https://via.placeholder.com/40/1a2340/ffffff?text=Task';
+            const text = offer.anchor || offer.name || offer.title || `Verification Task ${idx + 1}`;
+            
+            link.innerHTML = `
+              <img src="${imgUrl}" class="offer-icon" onerror="this.src='https://via.placeholder.com/40/1a2340/ffffff?text=Task'">
+              <span class="offer-text">${text}</span>
+            `;
+            
+            container.appendChild(link);
+          });
+
+        } catch (error) {
+          console.error("API Error Details:", error);
+          
+          let errorMessage = "Failed to connect to the offer server.";
+          if (error.message.includes("Failed to fetch") || error.message.includes("NetworkError")) {
+              errorMessage = "Network Error: This is usually caused by an AdBlocker blocking the connection, or because you are running the file locally. Please upload to a host or disable your AdBlocker.";
+          }
+          
+          container.innerHTML = `<p style="color: #ef4444; font-size: 13px; padding: 20px; line-height: 1.5;"><b>Error:</b> ${errorMessage}</p>`;
+        }
+      }
+    </script>
+  </body>
 </html>
