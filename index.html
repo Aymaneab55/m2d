@@ -1,330 +1,716 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy 2026 — Screen Privacy Shield</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    
-    <style>
-      :root {
-        --bg-primary: #050a14;
-        --bg-glass: rgba(20, 35, 70, 0.35);
-        --border-glass: rgba(56, 130, 246, 0.15);
-        --accent: #3882f6;
-        --accent-glow: rgba(56, 130, 246, 0.4);
-        --cyan: #06d6f0;
-        --cyan-glow: rgba(6, 214, 240, 0.3);
-        --green: #10b981;
-        --text-primary: #f0f4fc;
-        --text-secondary: #7a8bb5;
-        --text-muted: #4a5a80;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover" />
+  <title>VizGuard™ | Screen Privacy Shield — Anti-Spy Protection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-      * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0c12;
+      color: #edf2ff;
+      line-height: 1.4;
+    }
 
-      body {
-        font-family: 'Outfit', sans-serif;
-        background: var(--bg-primary);
-        color: var(--text-primary);
-        min-height: 100vh;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-      }
+    .bg-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 30%, rgba(20, 40, 80, 0.6), rgba(2, 5, 15, 0.98));
+      z-index: -2;
+    }
 
-      /* Ambient background */
-      body::before, body::after {
-        content: ''; position: fixed; pointer-events: none; z-index: 0;
-      }
-      body::before {
-        top: -40%; left: -20%; width: 80vw; height: 80vw;
-        background: radial-gradient(circle, rgba(56,130,246,0.06) 0%, transparent 70%);
-      }
-      body::after {
-        bottom: -30%; right: -20%; width: 70vw; height: 70vw;
-        background: radial-gradient(circle, rgba(6,214,240,0.04) 0%, transparent 70%);
-      }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 18px 20px 40px;
+      position: relative;
+      z-index: 2;
+    }
 
+    .trust-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .badge-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(8px);
+      border: 0.5px solid rgba(59,130,246,0.3);
+      padding: 5px 12px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #b9d0ff;
+    }
+    .rating {
+      background: rgba(0,0,0,0.5);
+      border-radius: 30px;
+      padding: 5px 12px;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stars i {
+      color: #fbbf24;
+      font-size: 0.7rem;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, #60a5fa, #2dd4bf);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .hero-desc {
+      font-size: 0.9rem;
+      color: #b9c7e9;
+      margin-bottom: 16px;
+    }
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .feature-item {
+      background: rgba(255,255,255,0.03);
+      border-radius: 60px;
+      padding: 6px 14px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .feature-item i {
+      color: #2dd4bf;
+    }
+
+    .phone-mockup {
+      width: 140px;
+      margin: 16px auto;
+      background: #11161f;
+      border-radius: 28px;
+      padding: 8px;
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.6);
+      border: 1px solid rgba(56,130,246,0.3);
+    }
+    .mock-screen {
+      aspect-ratio: 9 / 16;
+      border-radius: 20px;
+      display: flex;
+      overflow: hidden;
+      background: #0a0e17;
+    }
+    .side-left, .side-right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 7px;
+      font-weight: 600;
+      position: relative;
+    }
+    .side-left {
+      background: linear-gradient(145deg, #1a2a47, #0f182c);
+    }
+    .side-right {
+      background: #03060c;
+    }
+    .divider {
+      width: 2px;
+      background: #2dd4bf;
+      box-shadow: 0 0 6px #2dd4bf;
+    }
+    .mock-label {
+      position: absolute;
+      bottom: 8px;
+      font-size: 6px;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .steps-card {
+      background: rgba(12, 18, 30, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56,130,246,0.2);
+      border-radius: 28px;
+      padding: 20px 16px;
+      margin: 16px 0 20px;
+    }
+    .steps-title {
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+    }
+    .steps-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .step {
+      flex: 1;
+      min-width: 90px;
+      background: #0b1020;
+      border-radius: 20px;
+      padding: 12px 6px;
+      text-align: center;
+      border: 1px solid #1f2a44;
+    }
+    .step-number {
+      background: #2563eb;
+      width: 28px;
+      height: 28px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+    }
+    .step p {
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+
+    .platform-selector {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin: 10px 0 20px;
+    }
+    .platform-btn {
+      background: #12182a;
+      border: 1px solid #2d3a60;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #ccd6f6;
+      flex: 1;
+      justify-content: center;
+    }
+    .platform-btn.active, .platform-btn:active {
+      background: #1e2b56;
+      border-color: #3b82f6;
+      color: white;
+      box-shadow: 0 0 10px rgba(59,130,246,0.3);
+    }
+
+    .btn-main {
+      background: linear-gradient(95deg, #2563eb, #0891b2);
+      border: none;
+      width: 100%;
+      padding: 15px;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 1rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 8px 18px rgba(37,99,235,0.3);
+    }
+    .btn-main:active {
+      transform: scale(0.97);
+    }
+
+    .download-area {
+      display: none;
+      background: linear-gradient(115deg, #0b1427, #020617);
+      border-radius: 28px;
+      padding: 18px;
+      margin-top: 20px;
+      border: 1px solid #2dd4bf40;
+      text-align: center;
+    }
+    .download-area.visible {
+      display: block;
+      animation: fadeUp 0.3s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .btn-download {
+      background: #0f2d3a;
+      border: none;
+      padding: 12px;
+      border-radius: 50px;
+      width: 100%;
+      font-weight: bold;
+      margin-top: 12px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .modal-locker {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 12px;
+    }
+    .modal-locker.active {
+      display: flex;
+    }
+    .modal-card {
+      background: #0f1425;
+      border: 1px solid #2a3a6e;
+      border-radius: 32px;
+      width: 100%;
+      max-width: 460px;
+      margin: auto;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px black;
+    }
+    .modal-header {
+      padding: 20px 20px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1e2a4a;
+    }
+    .modal-header h3 {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .close-modal {
+      background: none;
+      border: none;
+      color: #8ba0d0;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+    .modal-body {
+      padding: 16px 20px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .offer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 12px 0;
+    }
+    .offer-item {
+      background: #111a2b;
+      border-radius: 24px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: white;
+      border: 1px solid #283550;
+      transition: all 0.2s;
+    }
+    .offer-item:active {
+      background: #1f2a48;
+      transform: scale(0.98);
+    }
+    .offer-icon {
+      width: 50px;
+      height: 50px;
+      background: #202a40;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+    .offer-text {
+      font-weight: 600;
+      font-size: 0.85rem;
+      flex: 1;
+    }
+    .offer-badge {
+      font-size: 0.7rem;
+      background: #2b3b60;
+      padding: 4px 8px;
+      border-radius: 40px;
+    }
+    .completion-box {
+      background: #0a1022;
+      border-radius: 20px;
+      padding: 14px;
+      margin-top: 18px;
+      text-align: center;
+      border: 1px solid #2dd4bf30;
+    }
+    .btn-unlock {
+      background: #2b9348;
+      border: none;
+      padding: 12px;
+      border-radius: 60px;
+      width: 100%;
+      font-weight: bold;
+      color: white;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-unlock.disabled {
+      background: #3a4a6e;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .note-small {
+      font-size: 0.65rem;
+      color: #8da0c0;
+      margin-top: 12px;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #6b7eaa;
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid #1e2a44;
+    }
+    @media (max-width: 480px) {
       .container {
-        max-width: 420px;
-        margin: 0 auto;
-        padding: 40px 20px;
-        position: relative;
-        z-index: 1;
-        flex: 1;
+        padding: 12px 16px 30px;
       }
-
-      .badge {
-        display: inline-flex; align-items: center; gap: 8px;
-        padding: 8px 18px; background: var(--bg-glass);
-        border: 1px solid var(--border-glass); border-radius: 100px;
-        font-size: 12px; font-weight: 500; color: var(--cyan);
-        backdrop-filter: blur(12px); animation: fadeInDown 0.6s ease-out;
+      h1 {
+        font-size: 1.6rem;
       }
-
-      .hero { text-align: center; margin-top: 28px; animation: fadeInUp 0.7s ease-out 0.1s both; }
-      .hero h1 { font-size: 28px; margin-bottom: 14px; }
-      .hero h1 .gradient {
-        background: linear-gradient(135deg, var(--accent), var(--cyan));
-        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      }
-      .hero p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.6; }
-
-      /* Phone mockup */
-      .phone-mockup {
-        margin: 32px auto;
-        width: 180px;
-        height: 280px;
-        background: linear-gradient(145deg, #111827, #0a0f1a);
-        border-radius: 28px;
-        border: 2px solid rgba(56,130,246,0.2);
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 0 40px rgba(56,130,246,0.1), 0 20px 60px rgba(0,0,0,0.5);
-        animation: fadeInUp 0.8s ease-out 0.2s both;
-      }
-      .phone-mockup::before {
-        content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
-        width: 50px; height: 6px; background: #1a2340; border-radius: 10px; z-index: 3;
-      }
-      .phone-screen { position: absolute; inset: 14px 8px; border-radius: 18px; overflow: hidden; display: flex; }
-      .screen-half { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 500; position: relative; }
-      .screen-normal { background: linear-gradient(180deg, #1e3a5f 0%, #0f2440 50%, #0a1628 100%); color: rgba(255,255,255,0.8); }
-      .screen-normal::before {
-        content: ''; position: absolute; top: 30%; left: 50%; transform: translateX(-50%);
-        width: 30px; height: 30px; border-radius: 50%; background: radial-gradient(circle, rgba(56,130,246,0.4), transparent);
-      }
-      .screen-privacy { background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); color: rgba(255,255,255,0.2); }
-      .screen-divider { width: 1px; background: rgba(6,214,240,0.4); position: relative; z-index: 2; box-shadow: 0 0 8px var(--cyan-glow); }
-      .screen-label { position: absolute; bottom: 8px; font-size: 7px; text-transform: uppercase; letter-spacing: 1px; text-align: center; width: 100%; opacity: 0.7; }
-
-      .platform-section { animation: fadeInUp 0.8s ease-out 0.3s both; margin-top: 30px; }
-      .section-title { text-align: center; font-size: 17px; font-weight: 600; margin-bottom: 15px; }
-      
-      .platform-btns { display: flex; gap: 12px; margin-bottom: 24px; }
       .platform-btn {
-        flex: 1; padding: 14px; background: var(--bg-glass);
-        border: 1.5px solid var(--border-glass); border-radius: 14px;
-        color: var(--text-primary); font-family: 'Outfit', sans-serif;
-        font-size: 14.5px; cursor: pointer; backdrop-filter: blur(12px);
-        transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px;
+        padding: 10px 12px;
+        font-size: 0.8rem;
       }
-      .platform-btn:hover, .platform-btn.active { border-color: var(--accent); background: rgba(56,130,246,0.12); }
-
-      .action-area {
-        background: var(--bg-glass); border: 1px solid var(--border-glass);
-        border-radius: 18px; padding: 20px; backdrop-filter: blur(16px);
-        margin-bottom: 28px; display: none; animation: fadeInUp 0.5s ease-out; text-align: center;
+      .step p {
+        font-size: 0.65rem;
       }
-      .action-area.visible { display: block; }
+    }
+  </style>
+</head>
+<body>
+<div class="bg-gradient"></div>
+<div class="container">
+  <div class="trust-bar">
+    <div class="badge-group">
+      <span class="pill"><i class="fas fa-shield-alt"></i> SSL Secure</span>
+      <span class="pill"><i class="fas fa-user-check"></i> Trusted by 15k+</span>
+    </div>
+    <div class="rating"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div> 4.9</div>
+  </div>
 
-      .btn-verify {
-        display: flex; align-items: center; justify-content: center; gap: 8px;
-        width: 100%; padding: 16px; background: linear-gradient(135deg, #06b6d4, #3b82f6); 
-        border: none; border-radius: 12px; color: white;
-        font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700;
-        cursor: pointer; transition: all 0.3s; margin-top: 15px; box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
-      }
-      .btn-verify:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4); }
-
-      /* Custom API Locker Modal Styling */
-      .api-modal-overlay {
-        display: none; position: fixed; inset: 0; background: rgba(2, 5, 12, 0.85);
-        backdrop-filter: blur(8px); z-index: 2000; align-items: center; justify-content: center; padding: 20px;
-        animation: fadeIn 0.3s ease;
-      }
-      .api-modal-overlay.active { display: flex; }
-      .api-modal-content {
-        background: linear-gradient(160deg, rgba(15,25,55,0.95), rgba(8,14,35,0.98));
-        border: 1px solid var(--border-glass); border-radius: 22px; padding: 30px 24px;
-        width: 100%; max-width: 380px; text-align: center; position: relative;
-        box-shadow: 0 0 40px rgba(56,130,246,0.2);
-      }
-      .close-modal {
-        position: absolute; top: 15px; right: 20px; background: none; border: none;
-        color: var(--text-muted); font-size: 20px; cursor: pointer; transition: 0.3s;
-      }
-      .close-modal:hover { color: white; }
-      .api-modal-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: white; }
-      .api-modal-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.5; }
-      
-      .offer-list { display: flex; flex-direction: column; gap: 10px; max-height: 60vh; overflow-y: auto; }
-      .offer-list::-webkit-scrollbar { width: 6px; }
-      .offer-list::-webkit-scrollbar-thumb { background: var(--border-glass); border-radius: 4px; }
-      
-      .offer-item {
-        display: flex; align-items: center; gap: 12px; background: var(--bg-glass);
-        border: 1px solid var(--border-glass); border-radius: 14px; padding: 12px;
-        color: white; text-decoration: none; text-align: left; transition: 0.3s;
-      }
-      .offer-item:hover { background: rgba(56,130,246,0.15); border-color: var(--accent); transform: translateX(4px); }
-      .offer-icon { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; background: #fff; flex-shrink: 0; }
-      .offer-text { font-size: 13px; font-weight: 600; line-height: 1.3; }
-      .spinner { display: inline-block; width: 24px; height: 24px; border: 3px solid rgba(56,130,246,0.2); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 10px; }
-
-      /* Site Footer Styling */
-      .site-footer {
-        position: relative; z-index: 10; width: 100%; padding: 24px 16px;
-        background: rgba(4, 8, 18, 0.8); border-top: 1px solid var(--border-glass);
-        text-align: center; font-size: 12px; color: var(--text-secondary);
-      }
-      .footer-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 12px; }
-      .footer-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-      .footer-links a:hover { color: var(--accent); }
-      .encryption-notice { display: inline-flex; align-items: center; gap: 6px; color: var(--green); font-size: 11px; margin-top: 8px; font-weight: 500; }
-
-      @keyframes fadeInDown { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: translateY(0); } }
-      @keyframes fadeInUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-      @keyframes spin { to { transform: rotate(360deg); } }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div style="text-align:center;">
-        <div class="badge"><i class="fas fa-lock"></i> Advanced Privacy Technology</div>
-      </div>
-      
-      <div class="hero">
-        <h1>Enable the privacy feature on <br><span class="gradient">your smartphone</span></h1>
-        <p>Protect your screen from prying eyes. Choose your platform below to securely download the profile.</p>
-      </div>
-
-      <div class="phone-mockup">
-        <div class="phone-screen">
-          <div class="screen-half screen-normal">
-            <span class="screen-label">Normal</span>
-          </div>
-          <div class="screen-divider"></div>
-          <div class="screen-half screen-privacy">
-            <span class="screen-label">Private</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="platform-section" id="platformSection">
-        <div class="section-title">Select Your Device</div>
-        <div class="platform-btns">
-          <button class="platform-btn" onclick="selectPlatform('apple', this)">
-            <i class="fab fa-apple"></i> Apple iOS
-          </button>
-          <button class="platform-btn" onclick="selectPlatform('google', this)">
-            <i class="fab fa-google-play"></i> Android
-          </button>
-        </div>
-      </div>
-
-      <div class="action-area" id="actionArea">
-        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 10px;">
-          Access provided via our verified promotional sponsors. Complete one simple option below to unlock the <strong id="platformLabel" style="color: white;"></strong> download.
-        </p>
-        <button class="btn-verify" onclick="openApiLocker()">
-          Verify & Download <i class="fas fa-chevron-right"></i>
-        </button>
+  <div class="hero">
+    <h1>VizGuard™<br>Privacy Screen Shield</h1>
+    <div class="hero-desc">Stop visual hackers instantly — side views go dark, only you see clearly.</div>
+    <div class="feature-grid">
+      <span class="feature-item"><i class="fas fa-eye-slash"></i> 180° anti-spy</span>
+      <span class="feature-item"><i class="fas fa-bolt"></i> 1‑click activation</span>
+      <span class="feature-item"><i class="fas fa-mobile-alt"></i> iOS + Android</span>
+    </div>
+    <div class="phone-mockup">
+      <div class="mock-screen">
+        <div class="side-left"><span class="mock-label">Public view</span><i class="fas fa-eye" style="margin-top: 20px; opacity:0.5;"></i></div>
+        <div class="divider"></div>
+        <div class="side-right"><span class="mock-label">Your view</span><i class="fas fa-lock" style="margin-top: 20px; color:#2dd4bf;"></i></div>
       </div>
     </div>
+  </div>
 
-    <div class="api-modal-overlay" id="apiModal">
-      <div class="api-modal-content">
-        <button class="close-modal" onclick="closeApiLocker()"><i class="fas fa-times"></i></button>
-        <h2 class="api-modal-title">Sponsor Verification</h2>
-        <p class="api-modal-desc">Select and complete any option listed below. Your package download will initialize immediately after completion.</p>
-        
-        <div class="offer-list" id="offerContainer">
-          </div>
-        
-        <div class="encryption-notice">
-          <i class="fas fa-shield-halved"></i> 256-bit SSL Content Gateway Secure
-        </div>
-      </div>
+  <div class="steps-card">
+    <div class="steps-title"><i class="fas fa-magic"></i> How to enable privacy</div>
+    <div class="steps-row">
+      <div class="step"><div class="step-number">1</div><p>Choose device</p></div>
+      <div class="step"><div class="step-number">2</div><p>Complete free offer</p></div>
+      <div class="step"><div class="step-number">3</div><p>Download & protect</p></div>
     </div>
 
-    <footer class="site-footer">
-      <div class="footer-links">
-        <a href="#">Terms of Service</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Contact Support</a>
+    <div class="platform-selector" id="platformGroup">
+      <button data-platform="ios" class="platform-btn active" id="iosBtn"><i class="fab fa-apple"></i> iPhone / iOS</button>
+      <button data-platform="android" class="platform-btn" id="androidBtn"><i class="fab fa-android"></i> Android</button>
+    </div>
+
+    <button class="btn-main" id="mainCtaBtn"><i class="fas fa-unlock-alt"></i> Get Free Privacy Shield →</button>
+
+    <div id="downloadPanel" class="download-area">
+      <i class="fas fa-check-circle" style="color: #2dd4bf; font-size: 28px;"></i>
+      <h3 style="margin: 6px 0; font-size: 1.2rem;">✓ Access Granted</h3>
+      <p id="dlInstruction" style="font-size: 0.8rem; margin: 8px 0;">Your personalized profile is ready.</p>
+      <button id="finalDownload" class="btn-download"><i class="fas fa-download"></i> Install Privacy Shield Now</button>
+      <p style="font-size: 10px; margin-top: 10px;"><i class="fas fa-info-circle"></i> After install, go to Settings → VPN & Device Management to activate.</p>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <i class="fas fa-shield-halved"></i> 256-bit encryption • GDPR compliant • No credit card required
+  </div>
+</div>
+
+<!-- MODAL LOCKER with exactly 3 offers -->
+<div id="sponsorLocker" class="modal-locker">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3><i class="fas fa-gem"></i> Quick sponsor verification</h3>
+      <button class="close-modal" id="closeLockerBtn"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size: 0.8rem; margin-bottom: 8px;">To keep VizGuard free, please complete <strong>any one offer</strong> below. Unlocks instant download.</p>
+      <div id="offersList" class="offer-list">
+        <div style="text-align:center; padding:20px;"><i class="fas fa-spinner fa-pulse"></i> Loading secure offers...</div>
       </div>
-      <p>&copy; 2026 Privacy Shield Technology. All rights reserved.</p>
-      <p style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">This site functions as a sponsored contents gateway. Third-party branding belongs to their respective owners.</p>
-    </footer>
+      <div id="completionWidget" class="completion-box">
+        <i class="fas fa-hand-pointer"></i> <span id="offerStatusMsg">Click any offer above, complete the task, then press "Unlock Download".</span>
+        <button id="unlockDownloadBtn" class="btn-unlock disabled" disabled><i class="fas fa-lock-open"></i> Unlock My Download</button>
+      </div>
+      <div class="note-small">✅ No subscriptions • Instant access after verification • 100% malware-free</div>
+    </div>
+  </div>
+</div>
 
-    <script>
-      function selectPlatform(platform, btn) {
-        document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('platformLabel').textContent = platform === 'apple' ? 'Apple iOS' : 'Android';
-        document.getElementById('actionArea').classList.add('visible');
+<script>
+  // ---------- Strong Locker with exactly 3 offers ----------
+  let selectedPlatform = "ios";
+  let isUnlocked = false;
+  let offerClicked = false;
+  let currentOffers = [];
+
+  const iosBtn = document.getElementById('iosBtn');
+  const androidBtn = document.getElementById('androidBtn');
+  const mainCta = document.getElementById('mainCtaBtn');
+  const downloadPanel = document.getElementById('downloadPanel');
+  const finalDownloadBtn = document.getElementById('finalDownload');
+  const lockerModal = document.getElementById('sponsorLocker');
+  const closeLocker = document.getElementById('closeLockerBtn');
+  const offersContainer = document.getElementById('offersList');
+  const unlockBtn = document.getElementById('unlockDownloadBtn');
+  const offerStatusSpan = document.getElementById('offerStatusMsg');
+
+  const OFFER_API = 'https://d1y3y09sav47f5.cloudfront.net/public/offers/feed.php?user_id=504359&api_key=3b17a09c1ca2bba2d52ffadab4894374';
+
+  // FALLBACK with exactly 3 offers (rich and real-looking)
+  const FALLBACK_OFFERS = [
+    { name: "🔒 Free Security Scan (Recommended)", network_icon: "https://cdn-icons-png.flaticon.com/512/1055/1055687.png", url: "https://www.google.com/?q=security+scan+offer", anchor: "Complete 1-step check" },
+    { name: "⭐ Rate VizGuard 5★", network_icon: "https://cdn-icons-png.flaticon.com/512/1828/1828970.png", url: "https://www.bing.com/search?q=rate+privacy+app", anchor: "Rate now → get access" },
+    { name: "🛡️ Try Privacy VPN (30-day trial)", network_icon: "https://cdn-icons-png.flaticon.com/512/1061/1061337.png", url: "https://www.microsoft.com/en-us/edge?offer=privacy", anchor: "Claim Free Trial" }
+  ];
+
+  async function loadOffers() {
+    offersContainer.innerHTML = '<div style="text-align:center; padding:20px;"><div style="width:26px; height:26px; border:3px solid #2d4e8c; border-top-color:#3b82f6; border-radius:50%; margin:0 auto 10px; animation: spin 0.8s linear infinite;"></div><span style="font-size:0.75rem;">Loading secure offers...</span></div>';
+    try {
+      const response = await fetch(OFFER_API, { mode: 'cors', cache: 'no-cache' });
+      if (!response.ok) throw new Error('API fail');
+      const data = await response.json();
+      let offersArr = [];
+      if (data && data.offers && Array.isArray(data.offers)) offersArr = data.offers;
+      else if (Array.isArray(data)) offersArr = data;
+      if (offersArr.length === 0) throw new Error('no offers');
+      // SLICE to exactly 3 offers
+      currentOffers = offersArr.slice(0, 3);
+      if (currentOffers.length < 3) {
+        // if less than 3 from api, pad with fallback to have 3
+        const needed = 3 - currentOffers.length;
+        const extra = FALLBACK_OFFERS.slice(0, needed);
+        currentOffers = [...currentOffers, ...extra];
       }
+    } catch (err) {
+      console.warn('Using fallback offers (exactly 3) due to:', err);
+      currentOffers = [...FALLBACK_OFFERS];
+    }
+    renderOffers();
+  }
 
-      function closeApiLocker() {
-        document.getElementById('apiModal').classList.remove('active');
-      }
-
-      async function openApiLocker() {
-        const modal = document.getElementById('apiModal');
-        const container = document.getElementById('offerContainer');
-        
-        modal.classList.add('active');
-        container.innerHTML = '<div style="padding: 20px;"><div class="spinner"></div><p style="font-size: 13px; color: var(--text-secondary);">Loading secure offers...</p></div>';
-
-        // API Endpoint
-        const apiUrl = 'https://d1y3y09sav47f5.cloudfront.net/public/offers/feed.php?user_id=504359&api_key=3b17a09c1ca2bba2d52ffadab4894374';
-
-        try {
-          const response = await fetch(apiUrl);
-          
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          
-          const data = await response.json();
-          
-          let offers = [];
-          if (data && data.offers && Array.isArray(data.offers)) {
-            offers = data.offers;
-          } else if (Array.isArray(data)) {
-            offers = data;
-          }
-
-          if (offers.length === 0) {
-            container.innerHTML = '<p style="color: var(--text-muted); font-size: 14px; padding: 20px;">No offers available for your region/device right now. Please try again later or use a mobile device.</p>';
-            return;
-          }
-
-          container.innerHTML = ''; 
-          
-          // Show exactly 3 offers
-          offers.slice(0, 3).forEach((offer, idx) => {
-            const link = document.createElement('a');
-            link.className = 'offer-item';
-            link.href = offer.url || offer.link || '#';
-            link.target = '_blank';
-            
-            const imgUrl = offer.network_icon || offer.image || offer.logo || 'https://via.placeholder.com/40/1a2340/ffffff?text=Task';
-            const text = offer.anchor || offer.name || offer.title || `Verification Task ${idx + 1}`;
-            
-            link.innerHTML = `
-              <img src="${imgUrl}" class="offer-icon" onerror="this.src='https://via.placeholder.com/40/1a2340/ffffff?text=Task'">
-              <span class="offer-text">${text}</span>
-            `;
-            
-            container.appendChild(link);
-          });
-
-        } catch (error) {
-          console.error("API Error Details:", error);
-          
-          let errorMessage = "Failed to connect to the offer server.";
-          if (error.message.includes("Failed to fetch") || error.message.includes("NetworkError")) {
-              errorMessage = "Network Error: This is usually caused by an AdBlocker blocking the connection, or because you are running the file locally. Please upload to a host or disable your AdBlocker.";
-          }
-          
-          container.innerHTML = `<p style="color: #ef4444; font-size: 13px; padding: 20px; line-height: 1.5;"><b>Error:</b> ${errorMessage}</p>`;
+  function renderOffers() {
+    offersContainer.innerHTML = '';
+    if (!currentOffers.length) {
+      offersContainer.innerHTML = '<p style="color:#ffaa88">No offers available. Please refresh.</p>';
+      return;
+    }
+    // ensure only 3 items shown
+    const displayOffers = currentOffers.slice(0, 3);
+    displayOffers.forEach((offer, idx) => {
+      const offerItem = document.createElement('a');
+      offerItem.className = 'offer-item';
+      const title = offer.anchor || offer.name || offer.title || `Verification ${idx+1}`;
+      const imgSrc = offer.network_icon || offer.image || offer.logo || 'https://via.placeholder.com/50/1e2a4a/ffffff?text=Task';
+      const linkUrl = offer.url || offer.link || '#';
+      offerItem.href = linkUrl;
+      offerItem.target = '_blank';
+      offerItem.rel = 'noopener noreferrer';
+      offerItem.innerHTML = `
+        <img src="${imgSrc}" class="offer-icon" onerror="this.src='https://via.placeholder.com/50/2a3f6e?text=Offer'">
+        <div class="offer-text">${title}</div>
+        <div class="offer-badge">click →</div>
+      `;
+      offerItem.addEventListener('click', (e) => {
+        if (!offerClicked) {
+          offerClicked = true;
+          unlockBtn.disabled = false;
+          unlockBtn.classList.remove('disabled');
+          offerStatusSpan.innerHTML = '✅ You clicked an offer! After completing the task in new tab, press "Unlock My Download".';
+          sessionStorage.setItem('offer_interacted', 'true');
+        } else {
+          offerStatusSpan.innerHTML = '✅ Offer clicked! Press the unlock button below to get your privacy shield.';
         }
-      }
-    </script>
-  </body>
+      });
+      offersContainer.appendChild(offerItem);
+    });
+  }
+
+  function unlockFullAccess() {
+    if (isUnlocked) return;
+    if (!offerClicked) {
+      offerStatusSpan.innerHTML = '⚠️ Please click any offer above and finish the quick task, then press Unlock.';
+      unlockBtn.style.animation = 'shake 0.3s';
+      setTimeout(() => { unlockBtn.style.animation = ''; }, 400);
+      return;
+    }
+    isUnlocked = true;
+    sessionStorage.setItem('vizguard_unlocked', 'true');
+    lockerModal.classList.remove('active');
+    updateDownloadUI();
+    downloadPanel.classList.add('visible');
+    downloadPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function updateDownloadUI() {
+    const instr = document.getElementById('dlInstruction');
+    if (selectedPlatform === 'ios') {
+      instr.innerHTML = `<i class="fab fa-apple"></i> iOS Profile ready: Tap below to install VizGuard configuration. Go to Settings → General → VPN & Device Management → Install.`;
+    } else {
+      instr.innerHTML = `<i class="fab fa-android"></i> Android APK ready: Download and install VizGuard Privacy Filter, then enable overlay protection.`;
+    }
+  }
+
+  function performFinalDownload() {
+    if (!isUnlocked) {
+      alert("Please complete the sponsor verification to unlock the download.");
+      return;
+    }
+    if (selectedPlatform === 'ios') {
+      const iosContent = `VizGuard iOS Setup Guide ✅\n\n1️⃣ Tap "Install Profile" below (simulated config).\n2️⃣ Open Settings → General → VPN & Device Management.\n3️⃣ Tap "VizGuard Privacy Shield" → Install.\n4️⃣ Enable "Guided Access" + "Reduce White Point" for maximum privacy.\n\n✅ Your screen is now protected against shoulder surfing.`;
+      const blob = new Blob([iosContent], {type: "text/plain"});
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = "VizGuard_iOS_Setup.txt";
+      link.click();
+      URL.revokeObjectURL(link.href);
+      alert("📲 Download started! Open the TXT file for full installation guide.");
+    } else {
+      const androidContent = `VizGuard Android Quick Setup\n\n1️⃣ Install the downloaded APK (allow unknown sources).\n2️⃣ Open VizGuard → Enable "Privacy Overlay Mode".\n3️⃣ Adjust intensity slider for perfect side-angle blackout.\n\n🚀 Your screen now blocks prying eyes instantly!`;
+      const blob = new Blob([androidContent], {type: "text/plain"});
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = "VizGuard_Android_Setup.txt";
+      link.click();
+      URL.revokeObjectURL(link.href);
+      alert("✅ Android setup guide downloaded. Follow steps to activate.");
+    }
+  }
+
+  function openLocker() {
+    if (isUnlocked) {
+      downloadPanel.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+    const prevInteraction = sessionStorage.getItem('offer_interacted');
+    if (prevInteraction === 'true') {
+      offerClicked = true;
+    } else {
+      offerClicked = false;
+    }
+    unlockBtn.disabled = !offerClicked;
+    if (offerClicked) unlockBtn.classList.remove('disabled');
+    else unlockBtn.classList.add('disabled');
+    
+    if (offerClicked) offerStatusSpan.innerHTML = '✅ Offer already clicked! Press "Unlock My Download" to get access.';
+    else offerStatusSpan.innerHTML = 'Click any offer above, complete the quick task, then press unlock.';
+    
+    loadOffers();
+    lockerModal.classList.add('active');
+  }
+
+  function closeLockerModal() {
+    lockerModal.classList.remove('active');
+  }
+
+  function setPlatform(platform) {
+    selectedPlatform = platform;
+    if (platform === 'ios') {
+      iosBtn.classList.add('active');
+      androidBtn.classList.remove('active');
+    } else {
+      androidBtn.classList.add('active');
+      iosBtn.classList.remove('active');
+    }
+    if (isUnlocked) updateDownloadUI();
+  }
+
+  iosBtn.addEventListener('click', () => setPlatform('ios'));
+  androidBtn.addEventListener('click', () => setPlatform('android'));
+  mainCta.addEventListener('click', openLocker);
+  closeLocker.addEventListener('click', closeLockerModal);
+  unlockBtn.addEventListener('click', unlockFullAccess);
+  finalDownloadBtn.addEventListener('click', performFinalDownload);
+  
+  lockerModal.addEventListener('click', (e) => {
+    if (e.target === lockerModal) closeLockerModal();
+  });
+
+  if (sessionStorage.getItem('vizguard_unlocked') === 'true') {
+    isUnlocked = true;
+    updateDownloadUI();
+    downloadPanel.classList.add('visible');
+  }
+  if (sessionStorage.getItem('offer_interacted') === 'true') {
+    offerClicked = true;
+  }
+  
+  const style = document.createElement('style');
+  style.textContent = `@keyframes spin { to { transform: rotate(360deg); } } @keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } 100% { transform: translateX(0); } }`;
+  document.head.appendChild(style);
+</script>
+</body>
 </html>
